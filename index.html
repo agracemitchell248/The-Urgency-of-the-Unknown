@@ -237,7 +237,7 @@ select { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; pa
           <p>In <em>The Body Remembers</em>, you named four survival responses: Fight, Flight, Freeze, Fawn. Two were missing, and they matter, especially for Black women navigating systems that were never built for them.</p>
         </div>
         <p class="screen-desc" style="font-size:0.75rem;">Select every response you recognize in yourself right now.</p>
-        <div class="response-grid" id="responseGrid">
+        <div class="response-grid" id="responseGrid" data-req-group=".selected">
           <div class="response-card" data-response="Freeze" onclick="toggleResponse(this)"><span class="response-name">Freeze</span><span class="response-subtitle">Going Still</span><span class="response-quote">"You aren't cowardly because you didn't email that contact."</span><span class="response-desc">Your system decided silence is safer than a "no."</span></div>
           <div class="response-card" data-response="Fight" onclick="toggleResponse(this)"><span class="response-name">Fight</span><span class="response-subtitle">On Edge</span><span class="response-quote">"You aren't a bad mom, friend, or partner because you've been snappy."</span><span class="response-desc">Your body feels attacked by uncertainty and is trying to defend your territory.</span></div>
           <div class="response-card" data-response="Justice" onclick="toggleResponse(this)"><span class="response-name">Justice</span><span class="response-subtitle">Wanting Accountability</span><span class="response-quote">"You aren't 'difficult' for wanting to report that company."</span><span class="response-desc">This isn't bitterness, this is your body refusing to pretend the harm wasn't real.</span></div>
@@ -267,19 +267,19 @@ select { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; pa
     </div>
 
     <!-- 7: Six sequential questions -->
-    <div class="screen" id="screen7">
+    <div class="screen" id="screen7" data-req-msg="Please answer all six questions, tapping Next after each one, before continuing.">
       <div class="card-body">
         <div class="section-num">04</div>
         <div class="eyebrow">Reflection</div>
         <h1 class="screen-title">What Has Your Body Been Doing?</h1>
         <div id="selectedReminder" style="display:none; margin-bottom:0.5rem;"><p class="screen-desc" style="font-size:0.72rem;">You recognized:</p><div class="selected-tags" id="reminderTags"></div></div>
         <div class="question-progress" id="questionProgress">Question 1 of 6</div>
-        <div class="question-block active" id="q1"><div class="question-num">Question 01</div><label class="reflection-label">What has your Freeze response looked like this week?</label><textarea id="r6_q1" placeholder="What did silence protect you from?"></textarea><button class="question-next" onclick="nextQuestion(2)">Next &rarr;</button></div>
-        <div class="question-block" id="q2"><div class="question-num">Question 02</div><label class="reflection-label">What has your Fight response been protecting?</label><textarea id="r6_q2" placeholder="What territory has your body been defending?"></textarea><button class="question-next" onclick="nextQuestion(3)">Next &rarr;</button></div>
-        <div class="question-block" id="q3"><div class="question-num">Question 03</div><label class="reflection-label">Where has your Flight response been trying to take you?</label><textarea id="r6_q3" placeholder="What landing strip is your body racing toward?"></textarea><button class="question-next" onclick="nextQuestion(4)">Next &rarr;</button></div>
-        <div class="question-block" id="q4"><div class="question-num">Question 04</div><label class="reflection-label">What has your Fawn response been trying to secure for you?</label><textarea id="r6_q4" placeholder="What kind of safety was it reaching for?"></textarea><button class="question-next" onclick="nextQuestion(5)">Next &rarr;</button></div>
-        <div class="question-block" id="q5"><div class="question-num">Question 05</div><label class="reflection-label">Has there been a Justice response, something you want to name or reclaim?</label><textarea id="r6_q5" placeholder="What does your sense of justice want to say?"></textarea><button class="question-next" onclick="nextQuestion(6)">Next &rarr;</button></div>
-        <div class="question-block" id="q6"><div class="question-num">Question 06</div><label class="reflection-label">Which response has taught you the most about yourself?</label><textarea id="r6_q6" placeholder="Not the professional version, the real one."></textarea></div>
+        <div class="question-block active" id="q1" data-req-scope data-req-msg="Please answer this question before tapping Next."><div class="question-num">Question 01</div><label class="reflection-label">What has your Freeze response looked like this week?</label><textarea id="r6_q1" data-req-always placeholder="What did silence protect you from?"></textarea><button class="question-next" onclick="nextQuestion(2)">Next &rarr;</button></div>
+        <div class="question-block" id="q2" data-req-scope data-req-msg="Please answer this question before tapping Next."><div class="question-num">Question 02</div><label class="reflection-label">What has your Fight response been protecting?</label><textarea id="r6_q2" data-req-always placeholder="What territory has your body been defending?"></textarea><button class="question-next" onclick="nextQuestion(3)">Next &rarr;</button></div>
+        <div class="question-block" id="q3" data-req-scope data-req-msg="Please answer this question before tapping Next."><div class="question-num">Question 03</div><label class="reflection-label">Where has your Flight response been trying to take you?</label><textarea id="r6_q3" data-req-always placeholder="What landing strip is your body racing toward?"></textarea><button class="question-next" onclick="nextQuestion(4)">Next &rarr;</button></div>
+        <div class="question-block" id="q4" data-req-scope data-req-msg="Please answer this question before tapping Next."><div class="question-num">Question 04</div><label class="reflection-label">What has your Fawn response been trying to secure for you?</label><textarea id="r6_q4" data-req-always placeholder="What kind of safety was it reaching for?"></textarea><button class="question-next" onclick="nextQuestion(5)">Next &rarr;</button></div>
+        <div class="question-block" id="q5" data-req-scope data-req-msg="Please answer this question before tapping Next."><div class="question-num">Question 05</div><label class="reflection-label">Has there been a Justice response, something you want to name or reclaim?</label><textarea id="r6_q5" data-req-always placeholder="What does your sense of justice want to say?"></textarea><button class="question-next" onclick="nextQuestion(6)">Next &rarr;</button></div>
+        <div class="question-block" id="q6" data-req-scope data-req-msg="Please answer this question before tapping Next."><div class="question-num">Question 06</div><label class="reflection-label">Which response has taught you the most about yourself?</label><textarea id="r6_q6" data-req-always placeholder="Not the professional version, the real one."></textarea></div>
       </div>
       <div class="nav-bar"><button class="btn btn-ghost" onclick="advance(6)">&larr; Back</button><button class="btn btn-primary" onclick="advance(8)">Continue &rarr;</button></div>
     </div>
@@ -291,7 +291,7 @@ select { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; pa
         <div class="eyebrow">The Cycle</div>
         <h1 class="screen-title">How We Move Through This.</h1>
         <p class="screen-desc">Not linear, but it has a starting place. Select the stage that feels furthest from where you are right now.</p>
-        <div class="cycle-wrap">
+        <div class="cycle-wrap" data-req-group=".selected-node">
           <div class="cycle-node" onclick="selectCycle(this,'regulation')"><div class="cycle-node-num">01</div><div class="cycle-node-title">Regulation</div><div class="cycle-node-desc">Move the energy through the body before strategizing from the mind.</div></div>
           <div class="cycle-node" onclick="selectCycle(this,'research')"><div class="cycle-node-num">02</div><div class="cycle-node-title">Research</div><div class="cycle-node-desc">Use eyes of curiosity to find what's missing.</div></div>
           <div class="cycle-node" onclick="selectCycle(this,'reclaim')"><div class="cycle-node-num">03</div><div class="cycle-node-title">Reclaim</div><div class="cycle-node-desc">Turn what was done to you into something you build for others.</div></div>
@@ -357,7 +357,7 @@ select { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; pa
         <div class="eyebrow">Choose Your Release Ritual</div>
         <h1 class="screen-title">A Moment of Completion.</h1>
         <p class="screen-desc">Once we break the spike, we give the body a moment of completion. There is no wrong answer.</p>
-        <div class="ritual-grid">
+        <div class="ritual-grid" data-req-group=".selected">
           <div class="ritual-card" onclick="selectRitual(this,120)"><div class="ritual-label">Let It Out</div><div class="ritual-sub">2 minutes. Let yourself cry if it comes.</div></div>
           <div class="ritual-card" onclick="selectRitual(this,180)"><div class="ritual-label">Simply Be</div><div class="ritual-sub">3 minutes. Do nothing. Let your body rest.</div></div>
           <div class="ritual-card" onclick="selectRitual(this,180,true)"><div class="ritual-label">Create Something</div><div class="ritual-sub">3 minutes. Color, doodle, or draw.</div></div>
@@ -375,7 +375,10 @@ select { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; pa
         <h1 class="screen-title">What Do You Know Now?</h1>
         <p class="screen-desc">What do you know about yourself now that you didn't have language for before?</p>
         <textarea id="r9_closing" placeholder="Even one sentence is enough." rows="4"></textarea>
-        <p class="screen-desc" style="font-style:italic; margin-top:0.5rem;">You showed up. You let your body be seen. <em>The Business of Audacity and Advocacy</em> will be waiting when you are ready.</p>
+        <blockquote class="pull-quote" style="margin-top:0.8rem;">"Once we break that spike, we give your brain a high-level project."</blockquote>
+        <p class="screen-desc">What do you have the audacity to do right now?</p>
+        <textarea id="r9_audacity" placeholder="Say it before you talk yourself out of it." rows="3"></textarea>
+        <p class="screen-desc" style="font-style:italic; margin-top:0.5rem;">You showed up. You let your body be seen. <em>From Victim to Visionary</em> will be waiting when you are ready.</p>
       </div>
       <div class="nav-bar"><button class="btn btn-ghost" onclick="advance(12)">&larr; Back</button><button class="btn btn-primary" onclick="advance(14)">Complete This Chapter &rarr;</button></div>
     </div>
@@ -396,9 +399,9 @@ select { width: 100%; border: 1.5px solid var(--border); border-radius: 10px; pa
       <div class="card-body" style="text-align:center;">
         <div class="tea-cta">
           <div class="label">You Don't Have to Do This Alone</div>
-          <h3>Come Have Tea With I'sha</h3>
+          <h3>Come Have Tea With Us</h3>
           <p style="font-size:0.75rem; color:rgba(255,255,255,0.6); line-height:1.5; margin-bottom:0.8rem;">Pull up a chair. Ask the real questions. Be witnessed.</p>
-          <a href="https://www.unbrokenpathways.org/isha-gaines-med-lpc" target="_blank" class="btn-rise">I'm In, Let's Rise Together &rarr;</a>
+          <a href="https://www.unbrokenpathways.org/isha-gaines-med-lpc" target="_blank" class="btn-rise">Let's Rise Together &rarr;</a>
         </div>
         <p style="font-size:0.68rem; color:var(--mid); margin-top:0.8rem;">The Liberation Series &middot; A Places to Thrive Program</p>
       </div>
@@ -566,6 +569,7 @@ function downloadPDF() {
     { label: 'Fears I named', val: r('r8_fears') },
     { label: 'What kept coming back', val: r('r8_repeated') },
     { label: 'What I know now', val: r('r9_closing') },
+    { label: 'What I have the audacity to do right now', val: r('r9_audacity') },
   ];
   fields.forEach(f => {
     if (f.val) { addText(f.label, 11, [108,117,125], true, 16); y += 4; addText(f.val, 12, [26,46,26], false, 17); y += 8; addDivider(); }
@@ -575,6 +579,197 @@ function downloadPDF() {
 }
 
 updateProgress(1);
+</script>
+<style>
+/* Required-answer guard */
+.req-missing { outline: 2px solid #c0392b !important; outline-offset: 2px; border-radius: 8px; }
+.req-msg { display: none; flex-shrink: 0; margin: 0 1rem 0.45rem; padding: 0.5rem 0.75rem; border-radius: 8px; background: #fdf0ef; border: 1px solid #e8b4b0; color: #a93226; font-family: inherit; font-size: 0.74rem; line-height: 1.35; text-align: left; }
+.req-msg.show { display: block; }
+.req-locked { opacity: 0.55; }
+</style>
+<script>
+/* Required-answer guard: the forward/submit button only works once every
+   visible question in the current screen is answered.
+   - textareas, text/email inputs and selects must be filled
+   - radio groups need a choice; sliders must be moved or tapped
+   - [data-req-group="<selector>"] needs at least one matching child (chips, checkboxes, pips)
+   - [data-req-custom="<name>"] uses window.REQ_CUSTOM[name]()
+   - [data-optional] opts a field out (an optional email must still be valid if filled)
+   - [data-req-always] keeps a field required while hidden (e.g. one-at-a-time questions)
+   - [data-req-scope] limits an inner "Next" button to its own block
+   - [data-req-final] on a submit button re-checks every screen */
+(function () {
+  var CFG = Object.assign({
+    screens: '.screen',
+    active: '.screen.active',
+    forward: '.nav-bar .btn-primary',
+    msg: 'Please answer every question on this screen before continuing.'
+  }, window.REQ_CONFIG || {});
+  var CUSTOM = window.REQ_CUSTOM || {};
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var shown = [];
+
+  function hiddenIn(node, root) {
+    for (var n = node; n && n !== root; n = n.parentElement) {
+      if (getComputedStyle(n).display === 'none') return true;
+    }
+    return false;
+  }
+  function skip(el, root) {
+    if (el.closest('[data-optional]')) return true;
+    if (el.closest('[data-req-always]')) return false;
+    return hiddenIn(el.closest('label') || el, root);
+  }
+  function filled(el) {
+    if (el.tagName === 'SELECT') return !!el.value;
+    var v = el.value.trim();
+    if (!v) return false;
+    return el.type !== 'email' || EMAIL_RE.test(v);
+  }
+
+  function requirements(root) {
+    var items = [];
+    root.querySelectorAll('textarea, input[type="text"], input[type="email"], select').forEach(function (el) {
+      if (el.type === 'email' && el.closest('[data-optional]') && !hiddenIn(el, root)) {
+        items.push({ mark: el, ok: function () { return !el.value.trim() || EMAIL_RE.test(el.value.trim()); } });
+        return;
+      }
+      if (skip(el, root)) return;
+      items.push({ mark: el, ok: function () { return filled(el); } });
+    });
+    var radios = {};
+    root.querySelectorAll('input[type="radio"][name]').forEach(function (el) {
+      if (skip(el, root) || radios[el.name]) return;
+      radios[el.name] = true;
+      var name = el.name;
+      var label = el.closest('label') || el;
+      items.push({
+        mark: label.parentElement || label,
+        ok: function () { return !!root.querySelector('input[type="radio"][name="' + CSS.escape(name) + '"]:checked'); }
+      });
+    });
+    root.querySelectorAll('input[type="range"]').forEach(function (el) {
+      if (skip(el, root)) return;
+      items.push({ mark: el.parentElement, ok: function () { return el.dataset.touched === '1'; } });
+    });
+    root.querySelectorAll('[data-req-group]').forEach(function (el) {
+      if (el.closest('[data-optional]') || (!el.closest('[data-req-always]') && hiddenIn(el, root))) return;
+      var sel = el.getAttribute('data-req-group');
+      items.push({ mark: el, ok: function () { return !!el.querySelector(sel); } });
+    });
+    root.querySelectorAll('[data-req-custom]').forEach(function (el) {
+      if (hiddenIn(el, root)) return;
+      var fn = CUSTOM[el.getAttribute('data-req-custom')];
+      if (fn) items.push({ mark: el, ok: function () { return !!fn(el); } });
+    });
+    return items;
+  }
+  function missing(root) {
+    return requirements(root).filter(function (r) { return !r.ok(); });
+  }
+
+  function activeScreen() { return document.querySelector(CFG.active); }
+  function scopeFor(btn) {
+    return btn.closest('[data-req-scope]') || btn.closest(CFG.screens) || activeScreen();
+  }
+  function msgBox(btn) {
+    var host = btn.closest('[data-req-scope]') ? btn : (btn.closest('.nav-bar, .nav') || btn);
+    var prev = host.previousElementSibling;
+    if (prev && prev.classList.contains('req-msg')) return prev;
+    var box = document.createElement('div');
+    box.className = 'req-msg';
+    box.setAttribute('role', 'alert');
+    host.parentNode.insertBefore(box, host);
+    return box;
+  }
+  function clearShown() {
+    shown.forEach(function (r) { r.mark.classList.remove('req-missing'); });
+    shown = [];
+  }
+
+  function block(btn, list, text) {
+    if (list.every(function (r) { return r.mark.matches('input[type="email"]'); })) {
+      text = 'Please enter a valid email address' + (list[0].mark.closest('[data-optional]') ? ', or leave it blank.' : '.');
+    }
+    clearShown();
+    list.forEach(function (r) { r.mark.classList.add('req-missing'); });
+    shown = list;
+    var box = msgBox(btn);
+    box.textContent = text;
+    box.classList.add('show');
+    var first = list[0].mark;
+    if (first.getClientRects().length) {
+      first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (first.matches('textarea, input, select')) first.focus({ preventScroll: true });
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest(CFG.forward + ', .question-next, [data-req-final]');
+    if (!btn || btn.disabled) return;
+    var screen = activeScreen();
+    if (!screen) return;
+    var inScreen = screen.contains(btn);
+    if (!inScreen && !btn.matches(CFG.forward)) return;
+
+    if (btn.hasAttribute('data-req-final')) {
+      var all = document.querySelectorAll(CFG.screens);
+      for (var i = 0; i < all.length; i++) {
+        var gaps = missing(all[i]);
+        if (!gaps.length) continue;
+        e.preventDefault(); e.stopImmediatePropagation();
+        if (all[i] === screen) block(btn, gaps, screen.getAttribute('data-req-msg') || CFG.msg);
+        else block(btn, gaps, 'Step ' + (i + 1) + ' still has unanswered questions. Please go back and complete it before submitting.');
+        return;
+      }
+      return;
+    }
+
+    var scope = inScreen ? scopeFor(btn) : screen;
+    var gaps = missing(scope);
+    if (!gaps.length) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    block(btn, gaps, scope.getAttribute('data-req-msg') || CFG.msg);
+  }, true);
+
+  function refresh() {
+    if (shown.length) {
+      shown = shown.filter(function (r) {
+        if (r.ok()) { r.mark.classList.remove('req-missing'); return false; }
+        return true;
+      });
+      if (!shown.length) document.querySelectorAll('.req-msg.show').forEach(function (b) { b.classList.remove('show'); });
+    }
+    var screen = activeScreen();
+    document.querySelectorAll('.req-locked').forEach(function (b) { b.classList.remove('req-locked'); });
+    if (!screen) return;
+    var btns = Array.prototype.slice.call(screen.querySelectorAll(CFG.forward + ', .question-next'));
+    document.querySelectorAll(CFG.forward).forEach(function (b) { if (!b.closest(CFG.screens) && btns.indexOf(b) < 0) btns.push(b); });
+    btns.forEach(function (b) {
+      var scope = screen.contains(b) ? scopeFor(b) : screen;
+      if (missing(scope).length) b.classList.add('req-locked');
+    });
+  }
+  function later() { setTimeout(refresh, 0); }
+
+  function touch(e) {
+    if (e.target.matches && e.target.matches('input[type="range"]')) e.target.dataset.touched = '1';
+  }
+  document.addEventListener('pointerdown', touch, true);
+  document.addEventListener('keydown', touch, true);
+  document.addEventListener('input', function (e) { touch(e); later(); }, true);
+  document.addEventListener('change', later, true);
+  document.addEventListener('click', function (e) {
+    // a new screen should start without stale warnings
+    if (e.target.closest('.btn-ghost, #btn-back')) {
+      clearShown();
+      document.querySelectorAll('.req-msg.show').forEach(function (b) { b.classList.remove('show'); });
+    }
+    later();
+  });
+  document.addEventListener('keyup', later);
+  refresh();
+})();
 </script>
 </body>
 </html>
